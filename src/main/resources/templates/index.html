@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <title>Encurtador</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+</head>
+
+<body>
+
+<h1>Ultima(s) URL(s) encurtada(s):</h1>
+
+<table class="container">
+    <thead>
+    <tr>
+        <th>URL</th>
+        <th>Redirecionamento</th>
+        <th>Deletar</th>
+    </tr>
+    </thead>
+<tr th:each="url : ${url}">
+    <div class="row">
+        <td><span th:text="${url.encurtador}"></span> </td>
+        <td><a th:text="${url.url}" th:href="${url.url}"></a></td>
+        <td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('UC#deletarEnc').arg(0, url.encurtador)).build()}"><i class="material-icons left">delete</i></a></td>
+    </div>
+</tr>
+</table>
+
+<h1> Encurte uma URL:</h1>
+
+<div class="form">
+    <form method="post" class="container">
+        <div class="input-field col s3">URL: <input type="text" value="" name="url"/></div>
+        <div class="input-field col s6">Encurtador: <input type="text" value="" name="encurtador"/></div>
+        <button type="submit" class="waves-effect waves-light btn"><i class="material-icons left">call_split</i>Encurtar!</button>
+    </form>
+</div>
+
+
+<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+
+</body>
+
+</html>
