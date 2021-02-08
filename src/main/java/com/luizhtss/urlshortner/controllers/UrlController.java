@@ -35,10 +35,12 @@ public class UrlController {
     }
 
     @RequestMapping(value = "/deletarEnc")
-    public String deletarEnc(String encurtador){
+    public Object deletarEnc(String encurtador){
         Optional<URL> optionalURL = Optional.ofNullable(ur.findByEncurtador(encurtador));
         if (!optionalURL.isPresent()){
-            return "redirect:/404";
+            ModelAndView mav = new ModelAndView("404");
+            mav.setStatus(HttpStatus.NOT_FOUND);
+            return mav;
         }
         ur.delete(optionalURL.get());
         return "redirect:/";
