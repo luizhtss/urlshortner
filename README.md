@@ -12,5 +12,5 @@ Ps: A demonstração possui recursos limitados.
 
 # TO-DO
 
-- Implementar Spring Secuity.
+- Implementar Spring Security.
 - Implementar reCAPTCHA.
