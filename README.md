@@ -9,3 +9,8 @@ Esta aplicacação é apenas uma PoC (proof of concept) =].
 https://urlshortnerpoc.herokuapp.com
 
 Ps: A demonstração possui recursos limitados.
+
+# TO-DO
+
+- Implementar Spring Secuity.
+- Implementar reCAPTCHA.
